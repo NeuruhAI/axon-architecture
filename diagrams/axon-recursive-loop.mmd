@@ -1,0 +1,5 @@
+flowchart LR
+    E[Exploration<br/>Worker node<br/>raw research] --> S[Synthesis<br/>SAL summary]
+    S --> Y[Synchronization<br/>FastAPI → Notion]
+    Y --> F[Feedback<br/>Align next action]
+    F --> E

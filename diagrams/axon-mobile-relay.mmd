@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Phone
+    participant Tailscale
+    participant Daemon as FastAPI Daemon
+    participant SAL
+    participant Local as Local Model
+    Phone->>Tailscale: Command (private overlay)
+    Tailscale->>Daemon: Route to M1 Mac
+    Daemon->>SAL: Compose prompt (budget-fit)
+    SAL->>Local: Execute on MLX
+    Local-->>SAL: Result
+    SAL-->>Daemon: Structured output
+    Daemon-->>Phone: Response over Tailscale
